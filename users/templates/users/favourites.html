@@ -1,0 +1,67 @@
+{%extends "food/base.html"%}
+{%block body%}
+<div class="row">
+<div class="cart mx-auto text-center">
+    <img class="card-image" src="{{user.profile.image.url}}" height="170">
+    <h2 class="card-title">{{user.username}}</h2>
+</div>
+<!-- Elegant Tracker Display -->
+<div class="card mx-auto shadow-lg border-0 text-center" style="max-width: 500px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            border-radius: 20px; 
+            margin: 30px auto;">
+
+    <div class="card-body py-4">
+        <!-- Icon -->
+        <div class="mb-3">
+            <i class="fas fa-fire fa-3x text-white"></i>
+        </div>
+
+        <!-- Title -->
+        <h3 class="card-title text-white mb-2" style="font-weight: 700;">
+            Total Calories
+        </h3>
+
+        <!-- Tracker Value (Your {{tracker}} goes here) -->
+        <div class="display-2 text-white mb-3" style="font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+            {{tracker}}
+            <small class="display-4">Cal</small>
+        </div>
+
+        <!-- Subtext -->
+        <p class="text-light mb-0" style="opacity: 0.9;">
+            <i class="fas fa-utensils mr-2"></i>
+            Across all your favorite foods
+        </p>
+    </div>
+
+    <!-- Decorative bottom -->
+    <div style="height: 10px; 
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                border-radius: 0 0 20px 20px;">
+    </div>
+</div>
+</div>
+{% for item in favourites %}
+    
+<div class="row food mx-auto text-center">
+    <div class="col-md-3 offset-md-2">
+        <img class="card" height="200px" src="{{item.item_image}}" />
+    </div>
+    <div class="col-md-4">
+        <h3>{{item.item_name}}</h3>
+        <h4>{{item.item_desc}}</h4>
+        <h6>{{item.item_cal}} Cal</h6> 
+    </div>
+    <div class="col-md-2">
+        <a href="{%url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+        <a href="{% url 'favourite_add' item.id %}" class="btn  btn-outline-primary">Remove</a>
+            </div>
+</div>
+
+
+{% endfor %}
+
+
+{%endblock%} 
+

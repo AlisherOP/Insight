@@ -1,0 +1,53 @@
+user: student
+pass: F@cky@u
+
+to run: 
+    http://127.0.0.1:8000/api/documents/
+
+
+signals
+    app.py -to work automatically
+for download to go to a folder:
+    add Media to settings
+    add upload_to='pdfs/%Y/%m/%d/' for models(pdf)
+install redis and celery, redis server,
+add the CELERY line to settings
+root folder- celery.py -add to __init__ the import stuff
+task.py heavy lifter
+
+REDIS(transporter)
+    # Start the service now
+sudo systemctl start redis-server
+
+    # Enable it to start on boot
+sudo systemctl enable redis-server  
+redis-cli ping
+turning off; sudo systemctl stop redis-server
+
+Turn celery:(the worker)
+    celery -A Insight worker --loglevel=info
+
+pip install PyPDF2 textblob
+
+pip install --upgrade certifi
+
+
+for the front-end:
+    drf-spectacular? 
+    pip install drf-spectacular
+
+    INSTALLED_APPS = [
+        'drf_spectacular',
+    ]
+
+    REST_FRAMEWORK = {
+        'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    }
+
+    metadata for your project’s "Instruction Manual."
+    SPECTACULAR_SETTINGS = {
+        'TITLE': 'Insight AI Document API',
+        'DESCRIPTION': 'An API that summarizes PDFs using Celery and AI.',
+        'VERSION': '1.0.0',
+        'SERVE_INCLUDE_SCHEMA': False,
+    }
