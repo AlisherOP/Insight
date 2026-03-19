@@ -1,5 +1,4 @@
-user: student
-pass: F@cky@u
+
 
 to run: 
     http://127.0.0.1:8000/api/documents/
