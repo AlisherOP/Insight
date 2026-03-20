@@ -1,27 +1,27 @@
-# 🧠 Insight AI - Document Analysis Engine
+#  Insight AI - Document Analysis Engine
 
 An asynchronous backend API built with **Django Rest Framework**, **Celery**, and **Redis** that extracts text from PDFs and provides AI-powered summaries and sentiment analysis.
 
-## 🚀 Key Features
+## Key Features
 - **Asynchronous Processing**: Heavy AI tasks are offloaded to Celery workers to keep the API responsive.
 - **AI Integration**: Uses `PyPDF2` for extraction, `Sumy` (LexRank) for summarization, and `TextBlob` for sentiment analysis.
 - **RESTful Architecture**: Complete CRUD operations via `ModelViewSets`.
 - **Auto-Documentation**: Interactive API docs via Swagger (drf-spectacular).
 - **Security**: Object-level permissions (users only see their own documents).
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **Framework**: Django & DRF
 - **Task Queue**: Celery & Redis
 - **Database**: PostgreSQL (Production) / SQLite (Dev)
 - **AI/NLP**: Sumy, TextBlob, NLTK
 - **Docs**: Swagger UI
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 1. **Clone the repo**:
    ```bash
-   git clone https://github.com/yourusername/insight-ai.git
-   cd insight-ai
+   git clone https://github.com/AlisherOP/Insight.git
+   cd Insight
 
     Setup Virtual Environment:
     code Bash
@@ -41,7 +41,7 @@ An asynchronous backend API built with **Django Rest Framework**, **Celery**, an
 
         Terminal 3 (Redis): redis-server
 
-📡 API Endpoints
+ API Endpoints
 
     POST /api/documents/ - Upload PDF
 
